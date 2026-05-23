@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#04040c" />
+    <meta name="description" content="QwinChat — Privacy-first, AI-powered real-time messaging" />
+    <title>QwinChat ⚡</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+    <style>
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { background: #04040c; color: #eef0ff; font-family: 'Outfit', sans-serif; }
+      #root { height: 100vh; overflow: hidden; }
+      #splash {
+        position: fixed; inset: 0; background: #04040c;
+        display: flex; flex-direction: column; align-items: center; justify-content: center;
+        z-index: 9999; transition: opacity 0.5s ease;
+      }
+      #splash .logo {
+        width: 80px; height: 80px; border-radius: 20px;
+        background: linear-gradient(135deg, #7c3aed, #06b6d4);
+        display: flex; align-items: center; justify-content: center;
+        font-size: 40px; margin-bottom: 20px;
+        box-shadow: 0 0 40px rgba(124,58,237,0.5);
+        animation: pulse 2s ease-in-out infinite;
+      }
+      #splash h1 {
+        font-size: 32px; font-weight: 800; letter-spacing: -1px;
+        background: linear-gradient(135deg, #7c3aed, #06b6d4);
+        -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      }
+      #splash p { color: #6060a0; font-size: 14px; margin-top: 8px; }
+      #splash .bar {
+        width: 160px; height: 3px; background: rgba(124,58,237,0.2);
+        border-radius: 99px; margin-top: 32px; overflow: hidden;
+      }
+      #splash .bar-fill {
+        height: 100%; border-radius: 99px;
+        background: linear-gradient(90deg, #7c3aed, #06b6d4);
+        animation: load 1.4s ease forwards;
+      }
+      @keyframes pulse { 0%,100%{box-shadow:0 0 40px rgba(124,58,237,.5)} 50%{box-shadow:0 0 70px rgba(124,58,237,.8)} }
+      @keyframes load { from{width:0} to{width:100%} }
+    </style>
+  </head>
+  <body>
+    <div id="splash">
+      <div class="logo">⚡</div>
+      <h1>QwinChat</h1>
+      <p>Private · Secure · AI-Powered</p>
+      <div class="bar"><div class="bar-fill"></div></div>
+    </div>
+    <div id="root"></div>
+    <script>
+      setTimeout(() => {
+        const s = document.getElementById('splash');
+        if (s) { s.style.opacity = '0'; setTimeout(() => s.remove(), 500); }
+      }, 1500);
+    </script>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+  </html>
+  
